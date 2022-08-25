@@ -25,9 +25,9 @@ class Lista
 {
 
   int tamanho;
+  No *sentinela;
 
 public:
-  No *sentinela;
   Lista()
   {
     this->sentinela = new No(-1);
@@ -42,6 +42,8 @@ public:
   void inserirDireita(No *referencia, No *novo);
   No *procuraNo(int posicao);
   void atualizaTamanho(int valor);
+  bool vazia();
+  int removerElemento(int elemento);
 };
 
 // NO ------------------
@@ -119,13 +121,59 @@ void Lista::anexar(int valor)
   this->atualizaTamanho(1);
 }
 
+bool Lista::vazia()
+{
+  bool vazia = this->tamanho == 0;
+  if (vazia)
+  {
+    printf("Lista esta vazia \n");
+  }
+  else
+  {
+    printf("Lista não esta vazia \n");
+  }
+  return vazia;
+}
+
+int Lista::removerElemento(int elemento)
+{
+  No *aux = this->sentinela;
+  No *referencia;
+  int posicao = -1;
+  for (int i = 0; i < this->tamanho; i++)
+  {
+    if (aux->getDado() == elemento)
+    {
+      referencia = aux;
+      posicao = i;
+    }
+    aux = aux->getProximo();
+  }
+
+  No *anterior = referencia->getAnterior();
+  No *prox = referencia->getProximo();
+  prox->atualizaAnterior(anterior);
+  anterior->atualizaProximo(prox);
+  delete (aux);
+  this->atualizaTamanho(-1);
+  return posicao;
+}
 int main()
 {
   std::cout << "Hello World!\n";
   Lista *lista = new Lista();
+  bool vazia;
+  vazia = lista->vazia();
+
   lista->anexar(3);
   lista->anexar(4);
   lista->anexar(5);
   lista->anexar(6);
   lista->imprimir();
+
+  vazia = lista->vazia();
+
+  int elemento = 5;
+  int posicao = lista->removerElemento(elemento);
+  printf("elemento %d removido na posicao %d\n", elemento, posicao);
 }
