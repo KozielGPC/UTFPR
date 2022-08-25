@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
 
 class No
 {
@@ -154,7 +156,6 @@ int Lista::removerElemento(int elemento)
   No *prox = referencia->getProximo();
   prox->atualizaAnterior(anterior);
   anterior->atualizaProximo(prox);
-  delete (aux);
   this->atualizaTamanho(-1);
   return posicao;
 }
@@ -176,4 +177,6 @@ int main()
   int elemento = 5;
   int posicao = lista->removerElemento(elemento);
   printf("elemento %d removido na posicao %d\n", elemento, posicao);
+
+  lista->imprimir();
 }
