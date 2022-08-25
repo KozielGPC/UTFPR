@@ -15,6 +15,7 @@ public:
     this->anterior = NULL;
     this->proximo = NULL;
   }
+  ~No(){};
 
   void atualizaProximo(No *no);
   void atualizaAnterior(No *no);
@@ -28,6 +29,8 @@ class Lista
 
   int tamanho;
   No *sentinela;
+  void inserirDireita(No *referencia, No *novo);
+  No *procuraNo(int posicao);
 
 public:
   Lista()
@@ -38,14 +41,24 @@ public:
     this->tamanho = 0;
   };
 
+  ~Lista(){
+    No * aux = this->sentinela;
+    No *temp;
+    for (int i = 0; i < this->tamanho; i++)
+    {
+        temp = aux;
+        delete temp;
+        aux = aux->getProximo();
+    }
+  }
+
   void imprimir();
   void anexar(int valor);
   void inserir(int valor, int posicao);
-  void inserirDireita(No *referencia, No *novo);
-  No *procuraNo(int posicao);
   void atualizaTamanho(int valor);
   bool vazia();
   int removerElemento(int elemento);
+  int posicaoElemento(int elemento);
 };
 
 // NO ------------------
@@ -159,6 +172,20 @@ int Lista::removerElemento(int elemento)
   this->atualizaTamanho(-1);
   return posicao;
 }
+
+int Lista::posicaoElemento(int elemento){
+    No *aux = this->sentinela;
+    for (int i = 0; i < this->tamanho; i++)
+    {
+      if (aux->getDado() == elemento)
+      {
+        return i;
+      }
+      aux = aux->getProximo();
+    }
+
+    return -1;
+};
 int main()
 {
   std::cout << "Hello World!\n";
@@ -176,7 +203,31 @@ int main()
 
   int elemento = 5;
   int posicao = lista->removerElemento(elemento);
-  printf("elemento %d removido na posicao %d\n", elemento, posicao);
+  if(posicao == -1){
+    printf("Elemento não encontrado\n");
+  }
+  else{
+    printf("Elemento %d removido na posicao %d\n", elemento, posicao);
+  }
+  posicao = lista->posicaoElemento(elemento);
 
+  if(posicao == -1){
+    printf("Elemento %d não encontrado\n", elemento);
+  }
+  else{
+    printf("Posicao do elemento %d é %d \n", elemento, posicao);
+  }
+
+  elemento = 3;
+
+  posicao = lista->posicaoElemento(elemento);
+
+  if(posicao == -1){
+    printf("Elemento %d não encontrado\n", elemento);
+  }
+  else{
+    printf("Posicao do elemento %d é %d \n", elemento, posicao);
+  }
+  
   lista->imprimir();
 }
