@@ -102,6 +102,7 @@ public:
             break;
         };
         this->showText();
+        printf("\n");
     };
     void setSignal(Signal){};
     void clear(){};
@@ -117,7 +118,7 @@ public:
     }
     void showText()
     {
-        printf("%s\n", this->getText());
+        std::cout << this->getText();
     }
 };
 
@@ -125,7 +126,8 @@ int main()
 {
     DisplayMarcio display;
     display.addDigit(ONE);
-    // display.addDigit(ZERO);
+    display.addDigit(ZERO);
+    display.addDigit(ZERO);
     // display.setSignal(NEGATIVE);
     display.clear();
 }
