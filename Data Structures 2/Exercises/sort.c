@@ -102,6 +102,28 @@ void mergeSort(int * vetor, int e, int d){
   }
 }
 
+
+int partition (int *v, int p, int r){
+  int x = v[r];
+  int i = p -1;
+  for (int j =p; j < r; j++){
+    if(v[j] <= x){
+      trocarPosicao(v, i+1, j);
+      i++;
+    }
+  }
+  trocarPosicao(v, i+1, r);
+  return i+1;
+}
+
+void quickSort(int *v, int p, int r){
+  if(p < r){
+    int q = partition(v, p, r);
+    quickSort(v, p, q-1);
+    quickSort(v, q+1, r);
+  }
+}
+
 void imprimirVetor(int tamanho, int * vetor){
   for(int i = 0; i < tamanho - 1; i++) {
         printf("%d, ", vetor[i]);
@@ -121,6 +143,11 @@ int main(int argc, char ** argv){
   int v3[] = {3,5,6, 0, 4, 7};
   mergeSort(v3,0, 5);
   imprimirVetor(6, v3);
+
+  int v4[] = {3,5,6, 0, 4, 7};
+  quickSort(v4, 0, 5);
+  imprimirVetor(6, v4);
+  
 }
 
 // int main() {
