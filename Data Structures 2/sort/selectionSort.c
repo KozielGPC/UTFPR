@@ -16,6 +16,7 @@ void selectionSort(int *array, int lenght)
 int main(void)
 {
     int array[arrayLenght] = {0};
+    printf("SelectionSort \n");
     printArray(array, arrayLenght);
     selectionSort(array, arrayLenght);
     printArray(array, arrayLenght);
