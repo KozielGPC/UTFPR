@@ -16,7 +16,7 @@ void merge(int *array, int startLeftArrayIndex, int endLeftArrayIndex, int endRi
     {
         leftArray[leftArrayIndex] = array[startLeftArrayIndex + leftArrayIndex];
     }
-    leftArray[leftArrayIndex] = INT_MAX;
+    leftArray[leftArrayLenght] = INT_MAX;
 
     for (rightArrayIndex = 0; rightArrayIndex <= rightArrayLenght; rightArrayIndex++)
     {
