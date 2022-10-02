@@ -32,11 +32,11 @@ public:
     static void show_cursor();
 
     static void set_cursor(int row, int col);
-    
+
     static void set_color(Color color);
     static void set_color_fg256(int color);
     static void set_color_bg256(int color);
     static void reset_color();
-    
+
     static void clear_screen();
 };

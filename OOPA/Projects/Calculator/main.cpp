@@ -45,15 +45,21 @@ void testKeyboard(Keyboard &keyboard)
   try
   {
     keyboard.findKey('1').press();
+    keyboard.findKey('1').press();
     keyboard.findKey('2').press();
-    keyboard.findKey('4').press();
-    keyboard.findKey('5').press();
-    keyboard.findKey('6').press();
-    keyboard.findKey('7').press();
-    keyboard.findKey('8').press();
-    keyboard.findKey('9').press();
-    keyboard.findKey('0').press();
-    // keyboard.findKey('=').press();
+    keyboard.findKey('1').press();
+    // keyboard.findKey('5').press();
+    // keyboard.findKey('6').press();
+    // keyboard.findKey('7').press();
+    // keyboard.findKey('8').press();
+    // keyboard.findKey('9').press();
+    // keyboard.findKey('0').press();
+    keyboard.findKey('+').press();
+    keyboard.findKey('1').press();
+    keyboard.findKey('1').press();
+    keyboard.findKey('2').press();
+    keyboard.findKey('1').press();
+    keyboard.findKey('+').press();
   }
   catch (const char *exception)
   {

@@ -29,12 +29,12 @@ void Console::set_color(Color color)
     cout << "\033[" << (int)color << 'm';
 }
 
-void Console::set_color_fg256(int color) 
+void Console::set_color_fg256(int color)
 {
     cout << "\033[38:5:" << color << "m";
 }
 
-void Console::set_color_bg256(int color) 
+void Console::set_color_bg256(int color)
 {
     cout << "\033[48:5:" << color << "m";
 }
@@ -50,7 +50,7 @@ void Console::clear_screen()
 }
 
 /*
-void Console::set_color_rgb(int r, int g, int b) 
+void Console::set_color_rgb(int r, int g, int b)
 {
     cout << "\033[38;2;" << r << ';' << g << ';' << b << "m";
 }

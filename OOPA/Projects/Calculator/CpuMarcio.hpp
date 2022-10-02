@@ -11,6 +11,8 @@ private:
   char digitsOperand2Count = 0;
   Operation operation = NOOP;
   int isFirstOperand = 1;
+  float memory = 0;
+  float getOperand(Digit *digits, int count);
 
 public:
   void receiveDigit(Digit);
