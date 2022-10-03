@@ -5,21 +5,12 @@ using namespace std;
 
 void DisplayMarcio::refresh()
 {
-  if (signal == NEGATIVE)
-  {
-    this->showDigitShape("    ", "    ", "████", "    ", "    ", 0);
-  }
-  else
-  {
-    // this->showDigitShape("    ","  █ ", " ███", "  █ ","    ",0);
-    this->showDigitShape("    ", "    ", "    ", "    ", "    ", 0);
-  }
-
   for (int i = 1; i <= this->digitsCount; i++)
   {
     this->showDigit(this->digits[i - 1]);
     printf(dots[i - 1] ? "█" : " ");
   }
+  printf("\n");
 }
 
 void DisplayMarcio::showDigit(Digit digit)
@@ -27,37 +18,37 @@ void DisplayMarcio::showDigit(Digit digit)
   switch (digit)
   {
   case ZERO:
-    cout << "0";
+    printf("0");
     break;
   case ONE:
-    cout << "1";
+    printf("1");
     break;
   case TWO:
-    cout << "2";
+    printf("2");
     break;
   case THREE:
-    cout << "3";
+    printf("3");
     break;
   case FOUR:
-    cout << "4";
+    printf("4");
     break;
   case FIVE:
-    cout << "5";
+    printf("5");
     break;
   case SIX:
-    cout << "6";
+    printf("6");
     break;
   case SEVEN:
-    cout << "7";
+    printf("7");
     break;
   case EIGHT:
-    cout << "8";
+    printf("8");
     break;
   case NINE:
-    cout << "9";
+    printf("9");
     break;
   default:
-    cout << "?";
+    printf("?");
   }
 };
 

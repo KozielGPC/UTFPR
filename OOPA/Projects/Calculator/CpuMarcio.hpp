@@ -13,6 +13,7 @@ private:
   int isFirstOperand = 1;
   float memory = 0;
   float getOperand(Digit *digits, int count);
+  void proccessOperation();
 
 public:
   void receiveDigit(Digit);

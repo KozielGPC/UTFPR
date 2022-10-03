@@ -1,8 +1,7 @@
 #include "Calculator.hpp"
 #include <iostream>
 
-void testDisplay(Display &display)
-{
+void testDisplay(Display &display) {
   std::cout << "Testing DISPLAY...\n";
   display.setSignal(NEGATIVE);
   display.addDigit(ZERO, true);
@@ -19,8 +18,7 @@ void testDisplay(Display &display)
   display.addDigit(ONE);
 }
 
-void testCpu(Cpu &cpu)
-{
+void testCpu(Cpu &cpu) {
   std::cout << "Testing CPU...\n";
   cpu.receiveControl(ON_CLEAR_ERROR);
   cpu.receiveDigit(ONE);
@@ -40,29 +38,27 @@ void testCpu(Cpu &cpu)
   /* -5 */
 }
 
-void testKeyboard(Keyboard &keyboard)
-{
-  try
-  {
-    keyboard.findKey('1').press();
-    keyboard.findKey('1').press();
-    keyboard.findKey('2').press();
-    keyboard.findKey('1').press();
+void testKeyboard(Keyboard &keyboard) {
+  try {
+    keyboard.findKey('4').press();
+    keyboard.findKey('0').press();
+    // keyboard.findKey('0').press();
+    // keyboard.findKey('1').press();
     // keyboard.findKey('5').press();
     // keyboard.findKey('6').press();
     // keyboard.findKey('7').press();
     // keyboard.findKey('8').press();
     // keyboard.findKey('9').press();
     // keyboard.findKey('0').press();
-    keyboard.findKey('+').press();
-    keyboard.findKey('1').press();
-    keyboard.findKey('1').press();
+    keyboard.findKey('*').press();
     keyboard.findKey('2').press();
-    keyboard.findKey('1').press();
-    keyboard.findKey('+').press();
-  }
-  catch (const char *exception)
-  {
+    // keyboard.findKey('0').press();
+    // keyboard.findKey('5').press();
+    // keyboard.findKey('0').press();
+    keyboard.findKey('=').press();
+    // keyboard.findKey('3').press();
+    // keyboard.findKey('+').press();
+  } catch (const char *exception) {
     std::cerr << exception;
   }
 }
@@ -72,8 +68,7 @@ void testKeyboard(Keyboard &keyboard)
 #include "KeyboardMarcio.hpp"
 #include "KeyMarcio.hpp"
 
-int main()
-{
+int main() {
   /* Fase de criação */
   /* Instancie suas implementações aqui */
   DisplayMarcio d1;
@@ -90,8 +85,11 @@ int main()
   KeyMarcio keyEight('8', EIGHT);
   KeyMarcio keyNine('9', NINE);
   KeyMarcio keyZero('0', ZERO);
-
+  
   KeyMarcio keyAddition('+', ADDITION);
+  KeyMarcio keySubtraction('-', SUBTRACTION);
+  KeyMarcio keyMultiplication('*', MULTIPLICATION);
+  KeyMarcio keyDivision('/', DIVISION);
   KeyMarcio keyEqual('=', EQUAL);
 
   /* Fase de construção/ligação */
@@ -110,6 +108,9 @@ int main()
   kb1.addKey(keyZero);
 
   kb1.addKey(keyAddition);
+  kb1.addKey(keySubtraction);
+  kb1.addKey(keyDivision);
+  kb1.addKey(keyMultiplication);
   kb1.addKey(keyEqual);
 
   /* Fase de testes */
