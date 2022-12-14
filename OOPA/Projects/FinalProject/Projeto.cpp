@@ -9,6 +9,11 @@ int Projeto::getId()
     return this->id;
 };
 
+int Projeto::getCoordenador()
+{
+    return this->id_coordenador_de_atividade;
+};
+
 string Projeto::getTitulo()
 {
     return this->titulo;
@@ -29,9 +34,18 @@ string Projeto::getObjetivoGeral()
     return this->objetivo_geral;
 };
 
+STATUS Projeto::getStatus()
+{
+    return this->status;
+};
+
 void Projeto::setId(int id)
 {
     this->id = id;
+};
+void Projeto::setCoordenador(int id)
+{
+    this->id_coordenador_de_atividade = id;
 };
 void Projeto::setTitulo(string titulo)
 {
@@ -51,4 +65,9 @@ void Projeto::setOFH(OFH ofh)
 void Projeto::setObjetivoGeral(string objetivo_geral)
 {
     this->objetivo_geral = objetivo_geral;
+};
+
+void Projeto::setStatus(STATUS status)
+{
+    this->status = status;
 };

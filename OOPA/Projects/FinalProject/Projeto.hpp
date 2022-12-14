@@ -16,14 +16,22 @@ enum OFH
     CONTINUA
 };
 
+enum STATUS
+{
+    APROVADO,
+    REPROVADO,
+    PENDENTE
+};
+
 class Projeto
 {
 private:
     int id;
-    // std::string coordenador_de_atividade;
     string titulo;
+    int id_coordenador_de_atividade;
     Modalidade modalidade;
     OFH ofh;
+    STATUS status = PENDENTE;
     // std::time_t data_inicio;
     // std::time_t data_fim;
     string objetivo_geral;
@@ -43,14 +51,18 @@ private:
     // std::string referencias_bibliograficas;
 public:
     int getId();
+    int getCoordenador();
     string getTitulo();
     Modalidade getModalidade();
     OFH getOFH();
     string getObjetivoGeral();
+    STATUS getStatus();
 
     void setId(int);
+    void setCoordenador(int);
     void setTitulo(string);
     void setModalidade(Modalidade);
     void setOFH(OFH);
     void setObjetivoGeral(string);
+    void setStatus(STATUS);
 };

@@ -15,4 +15,5 @@ public:
     bool criar(Projeto *);
     Projeto *buscar(int id);
     void setProjetoDAO(ProjetoDAO *);
+    void imprimirProjeto(int);
 };

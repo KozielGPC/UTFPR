@@ -13,12 +13,13 @@ int main()
 
     Projeto *p1 = new Projeto();
     p1->setTitulo("Projeto de teste");
+    p1->setCoordenador(1);
     p1->setObjetivoGeral("testar o projeto");
     p1->setModalidade(CULTURAL);
     p1->setOFH(CONTINUA);
     projetoManager->criar(p1);
 
-    projetoDAO->imprimirProjeto(p1->getId());
+    projetoManager->imprimirProjeto(p1->getId());
 
     return 0;
 };
