@@ -10,7 +10,6 @@ int main()
 
     ProjetoManager *projetoManager = new ProjetoManager();
     projetoManager->setProjetoDAO(projetoDAO);
-
     Projeto *p1 = new Projeto();
     p1->setTitulo("Projeto de teste");
     p1->setCoordenador(1);

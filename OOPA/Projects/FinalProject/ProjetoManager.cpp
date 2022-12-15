@@ -18,5 +18,5 @@ void ProjetoManager::setProjetoDAO(ProjetoDAO *projetoDAO)
 
 void ProjetoManager::imprimirProjeto(int id)
 {
-    this->imprimirProjeto(id);
+    this->projetoDAO->imprimirProjeto(id);
 };
